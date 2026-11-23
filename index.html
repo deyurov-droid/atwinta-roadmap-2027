@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Дорожная карта стратегии: 2026–2027</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700&amp;display=swap">
+<style>
+:root {
+  color-scheme:light;
+  --bg:#F2F3F5;--surface:#FFF;--sub:#F7F8FA;--fg:#1B1D21;--text:#4A4E55;--muted:#646B75;--edge:#E1E4E9;--input:#A0A6B0;
+  --accent:#FF2159;--pink:#FFE8EE;--red:#B00036;--amber:#FFF0D4;--brown:#754500;--slate:#E9EDF4;--slate-text:#42516C;--green:#E1F3E9;--green-text:#206244;
+  --gut:clamp(14px,3vw,42px);--pad:clamp(14px,1.65vw,24px);--gap:clamp(14px,1.7vw,24px);
+}
+[data-theme="dark"] {
+  color-scheme:dark;
+  --bg:#141518;--surface:#1C1E23;--sub:#252830;--fg:#F2F3F5;--text:#D2D6DD;--muted:#B3BBC7;--edge:#3C424E;--input:#777F8D;
+  --pink:#482431;--red:#FFABC0;--amber:#40321F;--brown:#F9CE88;--slate:#2D3748;--slate-text:#CAD7EC;--green:#213C31;--green-text:#A7E2BF;
+}
+*,*::before,*::after {box-sizing:border-box}
+[hidden] {display:none!important}
+body {margin:0;background:var(--bg);color:var(--fg);font:400 .875rem/1.5 Geologica,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+h1,h2,h3,h4,p,ol,ul,figure {margin:0}
+h1,h2,h3,h4 {line-height:1.25;font-weight:600;letter-spacing:-.025em}
+h1 {font-size:clamp(1.42rem,2.35vw,2.2rem)}
+h2 {font-size:clamp(1.05rem,1.55vw,1.36rem)}
+h3 {font-size:clamp(1.1rem,1.65vw,1.45rem)}
+h4 {font-size:.95rem}
+button,select,input {font:inherit}
+button,select {cursor:pointer}
+:focus-visible {outline:2px solid var(--red);outline-offset:2px}
+.shell {max-width:1560px;margin-inline:auto;padding-inline:var(--gut);min-width:0}
+.skip {position:fixed;left:12px;top:8px;transform:translateY(-180%);z-index:10;background:var(--surface);color:var(--fg);padding:8px 12px}
+.skip:focus {transform:none}
+.top {background:#0E0E0E;color:white}
+.top .shell {display:flex;align-items:center;justify-content:space-between;gap:16px 28px;min-height:124px;padding-block:18px}
+.top-side {display:grid;justify-items:end;gap:8px;flex:none}
+.meta {margin-top:8px;color:#CCC;line-height:1.55;font-size:.8rem}
+.stats,.actions,.project-meta,.decision-grid,.filter-set,.local {display:flex;align-items:center;gap:8px}
+.stats,.actions {flex-wrap:wrap}
+.stat,.button,select,.filter {border-radius:6px;white-space:nowrap;font-size:.775rem;color:inherit}
+.stat {border:1px solid #3C3C3C;padding:4px 8px}
+.stat-hot {color:#FFA8BE}
+.button,select,.filter {background:var(--surface);border:1px solid var(--input);padding:5px 10px;min-height:32px}
+.button:hover,.filter:hover,select:hover {background:var(--sub)}
+.top .button {background:#202020;border-color:#545454;color:white}
+.top .button:hover {background:#343434}
+.top :focus-visible {outline-color:#FFA8BE}
+main {display:grid;gap:var(--gap);padding-block:var(--gap) 26px}
+main>* {min-width:0}
+.panel,.card,.more-details {background:var(--surface);border:1px solid var(--edge);border-radius:12px;min-width:0}
+.section-head {display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:5px 14px;margin-bottom:11px}
+.section-head p,.section-head output {color:var(--muted);font-size:.8125rem}
+.decisions {padding:14px var(--pad)}
+.decision-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.decision {background:var(--sub);border:1px solid var(--edge);border-radius:7px;min-width:0}
+.decision-line {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;padding-inline:4px 7px;gap:6px;min-height:47px}
+.decision-toggle {display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px;min-height:42px;width:100%;text-align:start;background:none;color:var(--fg);border:0;border-radius:4px;padding:5px 5px;font-size:.8125rem;font-weight:500;line-height:1.25}
+.decision-toggle:hover,.more-details summary:hover {color:var(--red)}
+.num {display:grid;place-items:center;width:24px;height:24px;background:var(--pink);color:var(--red);border-radius:5px;font-size:.75rem;font-weight:600}
+.chevron {display:inline-block;width:8px;height:8px;border-inline-end:1.5px solid currentColor;border-block-end:1.5px solid currentColor;transform:rotate(45deg);margin:0 3px 4px 2px;flex:none}
+[aria-expanded="true"] .chevron,details[open]>summary .chevron {transform:rotate(225deg);margin-block:4px 0}
+select {max-width:100%;padding-inline:6px;font-size:.75rem}
+select[data-status="working"] {background:var(--amber);color:var(--brown)}
+select[data-status="done"] {background:var(--green);color:var(--green-text)}
+.decision-body {border-top:1px solid var(--edge);padding:11px;display:grid;gap:7px;color:var(--text);font-size:.8125rem}
+.decision-body strong,.have strong,.milestone-fallback strong,.risk strong {color:var(--fg);font-weight:600}
+.print-status {display:none}
+.timeline-head {padding:14px var(--pad) 0;margin:0}
+.timeline-scroll {overflow-x:auto;max-width:100%;scrollbar-width:thin}
+.timeline-scroll:focus-visible {outline-offset:-3px}
+.chart {--labels:242px;--today:0%;--marker-fade:color-mix(in srgb,var(--accent) 50%,transparent);min-width:1130px;padding-inline:var(--pad);isolation:isolate}
+.chart-row {display:grid;grid-template-columns:var(--labels) minmax(0,1fr);position:relative;min-width:0}
+.chart-row:not(.chart-head) {cursor:pointer;border-bottom:1px solid var(--edge);min-height:62px}
+.chart-row:not(.chart-head):hover,.chart-row.selected {background:var(--sub)}
+.chart-row.selected .stream {box-shadow:inset 3px 0 var(--accent)}
+.stream {position:sticky;left:0;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:start;width:100%;gap:4px;padding:4px 11px 4px 12px;border:0;border-radius:0;text-align:start;background:var(--surface);color:var(--fg);line-height:1.25}
+.chart-row:hover .stream,.chart-row.selected .stream {background:var(--sub)}
+.stream:focus-visible {outline-offset:-3px}
+.stream-name {font-size:.8125rem;font-weight:600;overflow-wrap:anywhere}
+.project-meta {gap:7px;flex-wrap:wrap}
+.row-count,.stream-label {color:var(--muted);font-size:.75rem}
+.badge {display:inline-block;padding:2px 7px;border-radius:4px;white-space:nowrap;background:var(--sub);color:var(--muted);font-size:.72rem;line-height:1.4;font-weight:500}
+.badge.urgent {background:var(--pink);color:var(--red);box-shadow:inset 2px 0 var(--accent)}
+.badge.active {background:var(--amber);color:var(--brown)}
+.track {position:relative;min-width:0;border-inline-end:1px solid var(--edge)}
+.chart-head .track {padding-top:37px}
+.chart-head .stream {justify-content:end;padding-bottom:6px}
+.months {display:grid;grid-template-columns:var(--months);position:relative;min-height:26px;border-bottom:1px solid var(--edge)}
+.month {min-width:0;border-inline-start:1px solid var(--edge);white-space:nowrap;padding:3px 0 5px 6px;color:var(--muted);font-size:.75rem;line-height:1.35}
+.month.year {font-weight:600;color:var(--fg)}
+.lines {position:absolute;inset:0;pointer-events:none;z-index:0}
+.lines i {position:absolute;inset-block:0;left:var(--at);border-inline-start:1px solid var(--edge)}
+.today-line {position:absolute;inset-block:0;left:var(--today);width:2px;background:var(--marker-fade);z-index:1;pointer-events:none}
+.today {position:absolute;left:clamp(0px,calc(var(--today) - 48px),calc(100% - 102px));top:3px;z-index:2;display:flex;align-items:center;gap:5px;min-height:21px;padding:2px 6px;border-radius:4px;background:var(--pink);color:var(--red);font-weight:600;font-size:.72rem;line-height:1.2;white-space:nowrap}
+.today::before {content:"";width:5px;height:5px;background:var(--accent);border-radius:50%}
+.bar {position:absolute;z-index:2;display:flex;align-items:center;left:var(--start);width:var(--duration);top:5px;min-height:31px;padding:3px 6px;box-shadow:inset -1px 0 var(--surface);border-radius:4px;background:var(--slate);color:var(--slate-text);font-size:.7375rem;font-weight:500;line-height:1.12;overflow-wrap:anywhere}
+.bar.hot {background:var(--accent);color:#220711}
+.bar.soft {background:var(--pink);color:var(--red)}
+.marker {position:absolute;bottom:0;left:var(--at);transform:translateX(-50%);z-index:3;width:29px;height:28px;border:0;padding:0;background:transparent;color:var(--slate-text);border-radius:5px}
+.marker::after,.diamond {content:"";display:block;width:9px;height:9px;margin:auto;border:2px solid currentColor;background:var(--surface);border-radius:1px;transform:rotate(45deg)}
+.marker:hover,.marker[aria-pressed="true"],.marker:focus-visible {color:var(--red)}
+.marker:hover::after,.marker[aria-pressed="true"]::after {background:var(--pink)}
+.marker:focus-visible {outline-offset:-3px}
+.timeline-info {display:flex;align-items:center;gap:10px;min-height:43px;padding:7px var(--pad);font-size:.78rem;color:var(--muted);background:var(--sub);border-radius:0 0 11px 11px}
+.diamond {flex:none;margin:0 2px;color:var(--slate-text)}
+.timeline-info strong {color:var(--fg);font-weight:600}
+.scroll-hint {display:none}
+.filters {display:grid;gap:7px;margin-bottom:10px}
+.filter-set {flex-wrap:wrap;min-width:0;gap:6px}
+.filter {background:transparent;border-color:var(--edge);color:var(--text)}
+.filter[aria-pressed="true"] {background:var(--pink);border-color:var(--red);color:var(--red);font-weight:500}
+#chips .filter {font-size:.75rem;min-height:29px;background:var(--surface)}
+#chips .filter[aria-pressed="true"] {background:var(--pink)}
+#cards {display:grid;gap:12px}
+.card {padding:var(--pad)}
+.project-head {display:flex;gap:10px 24px;align-items:start;justify-content:space-between;margin-bottom:8px}
+.project-title {display:flex;align-items:center;gap:6px 9px;flex-wrap:wrap}
+.progress {display:grid;gap:4px;color:var(--muted);font-size:.75rem;min-width:min(186px,100%)}
+progress {appearance:none;width:100%;height:5px;border:0;border-radius:5px;background:var(--edge);accent-color:var(--accent)}
+progress::-webkit-progress-bar {background:var(--edge);border-radius:5px}
+progress::-webkit-progress-value {background:var(--accent);border-radius:5px}
+progress::-moz-progress-bar {background:var(--accent);border-radius:5px}
+.summary {max-width:90ch;color:var(--text)}
+.have {margin-top:9px;padding:8px 11px;background:var(--sub);color:var(--text);border-radius:6px;font-size:.8125rem}
+.project-columns {display:grid;grid-template-columns:minmax(0,1.64fr) minmax(0,1fr);column-gap:var(--pad);margin-top:14px}
+.project-columns>div+div {border-inline-start:1px solid var(--edge);padding-inline-start:var(--pad)}
+.task-list,.milestone-list {list-style:none;padding:0;margin-top:5px}
+.task-list li+li,.milestone-list li+li {border-top:1px solid var(--edge)}
+.task {display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:start;gap:9px;padding:9px 0;cursor:pointer}
+.task input {width:17px;height:17px;margin:2px 0 0;accent-color:var(--red);cursor:pointer}
+.task input:checked+.task-text {color:var(--muted);text-decoration:line-through}
+.task-text {color:var(--text);overflow-wrap:anywhere;font-size:.8125rem}
+.due {align-self:start;font-weight:400}
+.milestone-list li {padding:8px 0;font-size:.8125rem;break-inside:avoid}
+.milestone-list time {color:var(--red);font-weight:600}
+.milestone-text {margin-top:3px}
+.milestone-fallback {margin-top:3px;color:var(--muted);font-size:.75rem}
+.local {flex-wrap:wrap;margin-top:11px;padding:8px var(--pad);background:var(--sub);border:1px solid var(--edge);border-radius:8px;color:var(--text);font-size:.8rem}
+.local>p:first-child {margin-inline-end:auto}
+.copy-feedback:not(:empty) {color:var(--green-text)}
+.more-details summary {display:flex;justify-content:space-between;align-items:center;gap:8px;list-style:none;cursor:pointer;font-weight:500;padding:12px var(--pad);border-radius:10px}
+.more-details summary::-webkit-details-marker {display:none}
+.more-body {border-top:1px solid var(--edge);padding:12px var(--pad) var(--pad);display:grid;gap:16px}
+.risk-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+.risk {padding:10px;background:var(--sub);border-radius:6px;break-inside:avoid}
+.risk p,.questions {color:var(--text);font-size:.8125rem}
+.risk p {margin-top:5px}
+.questions {margin-top:6px;padding-inline-start:1.35em}
+.questions li+li {margin-top:4px}
+footer {border-top:1px solid var(--edge);padding-block:12px 16px;color:var(--muted);font-size:.75rem}
+footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px 12px}
+@media(max-width:1180px) {
+  .gantt-hint {display:block!important}
+  .chart {--labels:228px}
+}
+@media(max-width:880px) {
+  .top .shell {align-items:start;flex-direction:column}
+  .top-side {justify-items:start}
+  .decision-grid {grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:760px) {
+  .chart {--labels:153px;min-width:1050px}
+  .stream {padding-inline:7px}
+  .project-columns {grid-template-columns:minmax(0,1fr);row-gap:13px}
+  .project-columns>div+div {padding:12px 0 0;border-inline-start:0;border-top:1px solid var(--edge)}
+  .filter-hint {display:block!important}
+  .filter-set {overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin;padding:3px;margin:-3px}
+  .filter {flex:none;min-height:44px}
+  #chips .filter {min-height:38px}
+}
+@media(max-width:640px) {
+  #print-button {display:none}
+  .top .button,.local .button {min-height:44px}
+  .project-head {flex-direction:column}
+  .progress {width:min(245px,100%)}
+  .risk-grid {grid-template-columns:minmax(0,1fr)}
+  .task {min-height:44px}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+@page {size:A4 landscape;margin:11mm}
+@media print {
+  :root,[data-theme="dark"] {color-scheme:light;--bg:white;--surface:white;--sub:#F7F8FA;--fg:#1B1D21;--text:#35383E;--muted:#545B65;--edge:#DFE2E7;--pink:#FFE8EE;--red:#B00036;--amber:#FFF0D4;--brown:#754500;--slate:#E9EDF4;--slate-text:#42516C}
+  body {font-size:9pt;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .shell {width:100%;padding-inline:0}
+  .top {background:white;color:var(--fg)}
+  .top .shell {padding-block:0 7px;min-height:0;flex-direction:row;align-items:center}
+  .top .meta,.stat-hot {color:var(--fg)}
+  .stat {border-color:var(--edge)}
+  h1 {font-size:19pt}h2 {font-size:14pt}h3 {font-size:12pt}
+  main {gap:10px;padding-block:8px}
+  .actions,.filters,.local,.skip,.scroll-hint,.timeline-info,.decision-line select,.decision-toggle .chevron,.timeline-head p,.more-details summary .chevron {display:none!important}
+  .decision-grid,.risk-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .decision {break-inside:avoid}
+  .decision-line {min-height:32px}
+  .decision-toggle {min-height:0;padding:0;font-size:9pt}
+  .decision-body[hidden] {display:grid!important}
+  .decision-body {font-size:8pt;padding:6px}
+  .print-status {display:block;font-size:8pt;color:var(--muted);margin-right:3px}
+  .timeline-scroll {overflow:visible}
+  .chart {min-width:0;--labels:155px;padding-inline:10px}
+  .chart-row:not(.chart-head) {min-height:48px}
+  .stream-name,.month,.bar {font-size:8pt}
+  .bar {min-height:27px;padding:2px 4px}
+  .marker {height:17px}
+  .marker::after {width:7px;height:7px}
+  .timeline,.project-head,.task-list li {break-inside:avoid}
+  #cards .card[hidden] {display:block!important}
+  #cards .card {break-inside:avoid;padding:10px}
+  .project-columns {grid-template-columns:minmax(0,1.64fr) minmax(0,1fr)}
+  .project-columns>div+div {padding:0 0 0 12px;border-top:0;border-inline-start:1px solid var(--edge)}
+  .task {min-height:0;padding:4px 0}
+  .more-details::details-content {content-visibility:visible}
+  footer {padding-block:7px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<header class="top">
+  <div class="shell">
+    <div><h1 id="title">Дорожная карта стратегии: 2026–2027</h1><p class="meta" id="meta"></p></div>
+    <div class="top-side">
+      <div class="stats" aria-label="Сводка"><span class="stat stat-hot" id="urgent-count"></span><output class="stat" id="top-decisions"></output><output class="stat" id="top-tasks"></output></div>
+      <div class="actions"><button class="button" type="button" id="theme">Тёмная тема</button><button class="button" type="button" id="print-button">Печать / PDF</button></div>
+    </div>
+  </div>
+</header>
+<main class="shell" id="main">
+  <section class="panel decisions" aria-labelledby="decisions-title">
+    <div class="section-head"><h2 id="decisions-title"></h2><output id="decisions-count"></output></div>
+    <div class="decision-grid" id="decisions"></div>
+  </section>
+  <section class="panel timeline" aria-labelledby="timeline-title">
+    <div class="section-head timeline-head"><h2 id="timeline-title">Лента Ганта</h2><p>Нажми на проект в ленте, чтобы открыть его задачи</p><p class="scroll-hint gantt-hint" aria-hidden="true">Месяцы можно листать ↔</p></div>
+    <figure>
+      <div class="timeline-scroll" role="region" aria-label="Лента проектов, прокрутка по горизонтали" tabindex="0"><div class="chart" id="chart"></div></div>
+      <figcaption class="timeline-info" role="status" id="timeline-info"></figcaption>
+    </figure>
+  </section>
+  <section aria-labelledby="projects-title">
+    <div class="section-head"><h2 id="projects-title">Проекты и задачи</h2><p class="scroll-hint filter-hint" aria-hidden="true">Фильтры можно листать ↔</p></div>
+    <div class="filters">
+      <div class="filter-set" id="modes" role="group" aria-label="Режим отображения"></div>
+      <div class="filter-set" id="chips" role="group" aria-label="Выбрать проект"></div>
+    </div>
+    <div id="cards"></div>
+    <div class="local" id="local" hidden><p>Есть локальные отметки в этом браузере</p><button class="button" type="button" id="copy">Скопировать правки</button><button class="button" type="button" id="reset">Сбросить</button><p class="copy-feedback" id="copy-feedback" role="status"></p></div>
+  </section>
+  <details class="more-details" id="more">
+    <summary><span id="more-title"></span><i class="chevron" aria-hidden="true"></i></summary>
+    <div class="more-body" id="more-body"></div>
+  </details>
+</main>
+<footer><div class="shell"><p id="footer-label"></p><time id="footer-date"></time></div></footer>
+<noscript><p class="shell">Включи JavaScript, чтобы открыть дорожную карту.</p></noscript>
+<script id="roadmap-fallback" type="application/json">
+{
+  "meta": {
+    "company": "Atwinta",
+    "title": "Дорожная карта стратегии: 2026–2027",
+    "subtitle": "Заместитель генерального директора по стратегии — главные проекты, решения и контрольные даты",
+    "owner": "Дмитрий Юров",
+    "period": "Ноябрь 2026 – ноябрь 2027",
+    "updatedAt": "2026-11-23",
+    "rangeStart": "2026-11-01",
+    "rangeEnd": "2027-11-30"
+  },
+  "decisions": [
+    {
+      "id": "d1",
+      "num": 1,
+      "title": "Модель для Hermes и помощника в amoCRM",
+      "deadline": "2026-11-19",
+      "status": "open",
+      "now": "Hermes работает на одной личной подписке OpenAI на всех, лимит уже выгорал за день. OpenAI и Anthropic не обслуживают Россию.",
+      "proposal": "Сразу перевести Hermes на корпоративный ключ Polza AI. В декабре проверить открытые модели (DeepSeek, Qwen, GLM) у российского провайдера — если справятся, это законный вариант на год. В amoCRM маскировать ПДн до отправки, сделки под NDA отмечать отдельно."
+    },
+    {
+      "id": "d2",
+      "num": 2,
+      "title": "Основа инструмента: Hermes или личные Claude/Codex через MCP",
+      "deadline": "2026-11-19",
+      "status": "open",
+      "now": "Идея с корпоративным MCP опирается на личные подписки сотрудников у поставщиков, которые не обслуживают Россию.",
+      "proposal": "Зафиксировать Hermes как единый корпоративный инструмент для продаж и проджектов. Закрыть вопрос разговором с генеральным директором."
+    },
+    {
+      "id": "d3",
+      "num": 3,
+      "title": "Позиция компании по агентам вместо персонала",
+      "deadline": "2026-11-19",
+      "status": "open",
+      "now": "В годовом плане есть агенты-роли, которые забирают часть рутинной работы. Официальная позиция команде ещё не озвучена.",
+      "proposal": "Согласовать с собственником до раскатки на менеджеров, что говорим команде. Без ясной позиции люди будут скрывать, где агент реально помогает."
+    },
+    {
+      "id": "d4",
+      "num": 4,
+      "title": "Второй человек на сопровождении сервисов",
+      "deadline": "2026-11-19",
+      "status": "open",
+      "now": "Платформу Hermes и помощника в amoCRM сейчас сопровождает один Дмитрий.",
+      "proposal": "Назначить подстраховку от разработки или девопса хотя бы на аварии: сервер, перезапуск, резервные копии."
+    }
+  ],
+  "projects": [
+    {
+      "id": "crm",
+      "name": "CRM и ИИ-помощник менеджера",
+      "short": "amoCRM · пилот и унификация",
+      "priority": "urgent",
+      "priorityLabel": "Срочно",
+      "summary": "Помощник в карточке сделки собирает переписку, звонки и файлы клиента, подсказывает следующий шаг и собирает КП в стиле Atwinta. В CRM пишет только по кнопке менеджера.",
+      "have": "Работают 12 автоматизаций и 3 монитора, план помощника согласован 10 ноября.",
+      "bars": [
+        { "label": "Пилот помощника", "start": "2026-11-01", "end": "2026-12-31", "tone": "hot" },
+        { "label": "Все менеджеры и правила CRM", "start": "2027-01-01", "end": "2027-02-28", "tone": "soft" },
+        { "label": "Агент ведения сделки", "start": "2027-03-01", "end": "2027-06-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2026-11-26", "label": "Офлайн-прогон помощника на 5 прошлых сделках", "fallback": "Разбираем пробелы, на живые сделки не выходим" },
+        { "date": "2026-12-11", "label": "Пилот на живых сделках у 2–3 менеджеров", "fallback": "Выясняем, что мешает, до расширения круга" },
+        { "date": "2027-02-28", "label": "Помощник в карточке у всех менеджеров, КП в бренде", "fallback": "Сужаем круг до активных пользователей и чиним сценарии" }
+      ],
+      "tasks": [
+        { "id": "crm-1", "text": "Подтвердить порядок этапов 0–6 и список пилотных менеджеров", "due": "до 19 ноя", "done": false },
+        { "id": "crm-2", "text": "Подключить внешнюю переписку по клиенту в контекст сделки (этап 1)", "due": "до 19 ноя", "done": false },
+        { "id": "crm-3", "text": "Провести офлайн-прогон на 5 прошлых сделках и вынести вердикт «полезно или нет»", "due": "до 26 ноя", "done": false },
+        { "id": "crm-4", "text": "Запустить помощника по ссылке из сделки у 2–3 пилотных менеджеров", "due": "до 11 дек", "done": false },
+        { "id": "crm-5", "text": "Выпустить виджет в карточке, запись по кнопке и КП в бренде на всех менеджеров", "due": "до 28 фев", "done": false },
+        { "id": "crm-6", "text": "Унифицировать CRM: обязательные поля по этапам, единые названия и монитор заполненности", "due": "до 28 фев", "done": false },
+        { "id": "crm-7", "text": "Запустить агента ведения сделки (находит брошенные сделки и предлагает следующий шаг)", "due": "II кв. 2027", "done": false }
+      ]
+    },
+    {
+      "id": "hermes",
+      "name": "Единый ИИ-агент (Hermes)",
+      "short": "Продажи и проджекты вместо личных подписок",
+      "priority": "urgent",
+      "priorityLabel": "Срочно",
+      "summary": "Один корпоративный агент в Telegram с рабочими навыками компании (разбор ТЗ, ответы клиенту, протоколы, статусы Jira) вместо личных ИИ-подписок. Разработку и дизайн пока не затрагивает.",
+      "have": "Платформа работает на сервере в России, готовы 19 рабочих навыков.",
+      "bars": [
+        { "label": "Отдел продаж", "start": "2026-11-01", "end": "2026-12-31", "tone": "hot" },
+        { "label": "Проджекты", "start": "2027-01-01", "end": "2027-02-28", "tone": "soft" },
+        { "label": "Новые сценарии и пересмотр моделей", "start": "2027-03-01", "end": "2027-11-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2026-11-19", "label": "4 решения приняты, Hermes на корпоративном ключе", "fallback": "Раскатка стоит — упираемся в лимит личной подписки" },
+        { "date": "2026-12-11", "label": "Hermes у всего отдела продаж, пользуются не меньше 70% в неделю", "fallback": "Разбираем барьеры у команды (в пилоте было 7 сообщений за неделю)" },
+        { "date": "2027-02-28", "label": "Все продажники и проджекты в Hermes, личные подписки не нужны", "fallback": "Докручиваем сценарии под реальную работу" }
+      ],
+      "tasks": [
+        { "id": "her-1", "text": "Перевести Hermes с личной подписки на корпоративный ключ Polza AI", "due": "до 19 ноя", "done": false },
+        { "id": "her-2", "text": "Опросить 3–4 продажников и проджектов о ручных задачах и собрать список их личных подписок", "due": "до 19 ноя", "done": false },
+        { "id": "her-3", "text": "Собрать по 2–3 готовых сценария на роль (ТЗ, ответы, подготовка к встрече, протокол, Jira)", "due": "до 26 ноя", "done": false },
+        { "id": "her-4", "text": "Подготовить сервер к отделу: 8 ГБ памяти, узкие права записи в Jira, админы, корпоративные ключи", "due": "до 26 ноя", "done": false },
+        { "id": "her-5", "text": "Подключить отдел продаж, затем проджектов (старт с 30-минутной сессии на живой задаче)", "due": "до 11 дек", "done": false },
+        { "id": "her-6", "text": "Разослать правило по данным на 1 страницу (какие данные клиентов в какие модели можно отдавать)", "due": "до 15 дек", "done": false },
+        { "id": "her-7", "text": "Проверить открытые модели у российского провайдера в декабре и пересматривать выбор раз в полгода", "due": "дек / май / ноя", "done": false }
+      ]
+    },
+    {
+      "id": "margin",
+      "name": "Маржинальность и контроль ИИ в проектах",
+      "short": "Разборы с менеджерами, потери, фикс-цена",
+      "priority": "active",
+      "priorityLabel": "С декабря",
+      "summary": "Понимаем, где агентство теряет деньги, и как нейронки реально работают внутри проектов. От регулярных разборов с каждым менеджером переходим к точной разметке маржи и фиксированной цене на повторяемые работы.",
+      "have": "Методика ценообразования и переход к фиксу вынесены из стратегии ИИ как отдельный контур.",
+      "bars": [
+        { "label": "Разборы с менеджерами и анализ маржи", "start": "2026-12-01", "end": "2027-02-28", "tone": "soft" },
+        { "label": "Прайс фиксом", "start": "2027-03-01", "end": "2027-03-31", "tone": "soft" },
+        { "label": "Пилотные сделки фиксом", "start": "2027-04-01", "end": "2027-06-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2027-03-31", "label": "Готов прайс с фиксированной ценой на 2 типа повторяемых работ", "fallback": "Уточняем себестоимость по реальным часам проектов" },
+        { "date": "2027-06-30", "label": "Закрыты 1–2 пилотные сделки по фиксированной цене", "fallback": "Разбор с собственником по ценовой модели" }
+      ],
+      "tasks": [
+        { "id": "mar-1", "text": "Начать личные разборы с каждым менеджером по его проектам: где, как и какие нейронки команда использует", "due": "с дек", "done": false },
+        { "id": "mar-2", "text": "Зафиксировать регулярный контроль применения ИИ в проектах и точки, где ручная работа съедает маржу", "due": "до 28 фев", "done": false },
+        { "id": "mar-3", "text": "Разметить проекты 2025–2026 по марже и типу работ, выделить главные потери", "due": "до 28 фев", "done": false },
+        { "id": "mar-4", "text": "Подготовить прайс фиксом на 2 типа повторяемых работ", "due": "до 31 мар", "done": false },
+        { "id": "mar-5", "text": "Провести 1–2 пилотные сделки по фиксированной цене", "due": "до 30 июн", "done": false }
+      ]
+    },
+    {
+      "id": "learning",
+      "name": "Обучение продаж и проджектов",
+      "short": "Живые задачи вместо отдельных упражнений",
+      "priority": "active",
+      "priorityLabel": "С раскаткой",
+      "summary": "Учим сотрудников сразу внутри Hermes на их собственных рабочих задачах. Лучшие приёмы команды превращаем в общие навыки в каталоге компании.",
+      "have": "Еженедельные встречи с проджектами идут, с 21 ноября задания привязаны только к реальной работе.",
+      "bars": [
+        { "label": "Онбординг с раскаткой", "start": "2026-12-01", "end": "2027-02-28", "tone": "soft" },
+        { "label": "Разборы и пополнение каталога навыков", "start": "2027-03-01", "end": "2027-11-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2026-11-21", "label": "Учебные задания выдаются только вместе с реальной задачей", "fallback": "Не плодим оторванные упражнения" }
+      ],
+      "tasks": [
+        { "id": "lrn-1", "text": "Перевести задания проджектов на сценарии Hermes и реальные рабочие задачи", "due": "до 11 дек", "done": false },
+        { "id": "lrn-2", "text": "Проводить разборы на встречах: где агент дал слабый ответ и как улучшить промпт/навык", "due": "до 28 фев", "done": false },
+        { "id": "lrn-3", "text": "Собрать 10 новых рабочих навыков от сотрудников в общий каталог Hermes", "due": "до 28 фев", "done": false }
+      ]
+    },
+    {
+      "id": "harness",
+      "name": "Харнесс компании и модель штата",
+      "short": "Агенты-роли с человеком-владельцем",
+      "priority": "later",
+      "priorityLabel": "С января",
+      "summary": "Переводим повторяемые функции в агентскую модель: агенты-роли с узкими правами доступа к рабочим системам и ответственным человеком за каждую роль.",
+      "have": "Заложено как годовой контур после запуска базовой платформы Hermes и помощника в CRM.",
+      "bars": [
+        { "label": "Описание и 3 агента-роли", "start": "2027-01-01", "end": "2027-03-31", "tone": "soft" },
+        { "label": "Карта «агент / человек»", "start": "2027-04-01", "end": "2027-06-30", "tone": "calm" },
+        { "label": "Тираж по функциям", "start": "2027-07-01", "end": "2027-11-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2027-03-31", "label": "Описан харнесс и запущены первые 3 агента-роли", "fallback": "Сдвигаем харнесс на квартал, CRM и Hermes держат сроки" },
+        { "date": "2027-06-30", "label": "Готова карта функций: что делает агент, что человек, кто отвечает", "fallback": "Разбор с собственником" },
+        { "date": "2027-11-30", "label": "Итог года и план на 2028", "fallback": "Корректировка плана 2028" }
+      ],
+      "tasks": [
+        { "id": "har-1", "text": "Описать архитектуру харнесса и доступы к amoCRM, Jira, GitLab и Диску с узкими правами", "due": "до 31 мар", "done": false },
+        { "id": "har-2", "text": "Запустить первые 3 агента-роли с владельцем (ведение сделки, тендеры, КП, отчётность, протоколы)", "due": "до 31 мар", "done": false },
+        { "id": "har-3", "text": "Составить карту функций «агент или человек» и решение по штатной модели после решения №3", "due": "до 30 июн", "done": false }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Разработка, отделы и фоновые зоны",
+      "short": "Разработка, регламенты отделов, маркетинг, продажи",
+      "priority": "later",
+      "priorityLabel": "I кв. – год",
+      "summary": "Отдельный заход в разработку без давления сверху, волновое внедрение в остальных отделах (дизайн, аналитика, маркетинг, QA, бэк-офис), продолжение маркетинга/аутрича и адресное участие в продажах.",
+      "have": "Программа внедрения по отделам и производственная стратегия от 11 ноября готовы и лежат в фоне.",
+      "bars": [
+        { "label": "Встречи: разработка", "start": "2027-01-01", "end": "2027-02-28", "tone": "soft" },
+        { "label": "Кейсы в регламентах отделов", "start": "2027-03-01", "end": "2027-09-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2027-09-30", "label": "По каждому отделу есть рабочий ИИ-кейс в регламенте", "fallback": "Фокусируемся на отделах с максимальным эффектом" }
+      ],
+      "tasks": [
+        { "id": "oth-1", "text": "Провести 2–3 встречи с руководителем разработки: инструменты, легальная модель, проверка кода", "due": "до 28 фев", "done": false },
+        { "id": "oth-2", "text": "Зафиксировать цели маркетинга и аутрича на 2027 год (ведутся постоянно)", "due": "до 28 фев", "done": false },
+        { "id": "oth-3", "text": "Внедрить по рабочему ИИ-кейсу в регламенты дизайна, аналитики, маркетинга, QA и бэк-офиса", "due": "до 30 сен", "done": false },
+        { "id": "oth-4", "text": "Продажи — адресное подключение к ключевым сделкам по запросу", "due": "по запросу", "done": false }
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "title": "Инструмент раздали, но им не пользуются",
+      "signal": "В пилоте за неделю было всего 7 сообщений агенту на всех.",
+      "action": "Выдаём готовые сценарии под роль, первую сессию проводим на живой задаче, замеряем использование каждую неделю."
+    },
+    {
+      "title": "Доступ к моделям обрывается",
+      "signal": "Зарубежные поставщики не обслуживают Россию.",
+      "action": "Переходим на корпоративный ключ сразу, в декабре тестируем открытые модели в РФ. Навыки агента не привязаны к одной модели."
+    },
+    {
+      "title": "Данные клиентов из CRM уходят во внешнюю модель",
+      "signal": "В карточках сделок есть персональные данные и условия NDA.",
+      "action": "Маскируем ПДн до отправки, сделки под NDA помечаем отдельно, рассылаем правило по данным до 15 декабря."
+    },
+    {
+      "title": "Все сервисы держатся на одном человеке",
+      "signal": "Платформу и помощника сейчас сопровождает один Дмитрий.",
+      "action": "Выделяем второго ответственного на аварии (решение №4), инструкции и конфигурацию храним в репозиториях."
+    }
+  ],
+  "openQuestions": [
+    "Сколько продажников и проджектов идут в первую раскатку и кто сейчас платит за личные подписки?",
+    "Что именно входит в объём «унифицировать CRM»?",
+    "Каково текущее состояние маркетинга и аутрича и какие цели на 2027 год?",
+    "Где и у кого лежат актуальные данные о марже проектов?",
+    "Кто станет вторым человеком на сопровождении сервисов?",
+    "Какова позиция собственника по замене части функций агентами?",
+    "Какой финальный список пилотных менеджеров помощника в amoCRM?"
+  ]
+}
+</script>
+<script>
+(async () => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const list = selector => [...document.querySelectorAll(selector)];
+  const status = {open:'Открыто',working:'В работе',done:'Решено'};
+  const key = 'atwinta-roadmap-v2';
+  const fallback = () => JSON.parse($('roadmap-fallback').textContent);
+  let data;
+  if (/^https?:$/.test(location.protocol)) {
+    try {
+      const response = await fetch('./roadmap-data.json', { cache: 'no-store' });
+      if (response.ok) data = await response.json();
+    } catch { /* Используем встроенную версию. */ }
+  }
+  if (!data?.meta || !data.projects?.length || !Array.isArray(data.decisions) || !Array.isArray(data.risks) || !Array.isArray(data.openQuestions)) data = fallback();
+  const {meta,decisions,projects,risks,openQuestions} = data;
+  const urgent = projects.filter(project => project.priority === 'urgent');
+  const tasks = projects.flatMap(project => project.tasks);
+  const projectMap = new Map(projects.map(project => [project.id,project]));
+  const decisionMap = new Map(decisions.map(decision => [decision.id,decision]));
+  const taskMap = new Map(tasks.map(task => [task.id,task]));
+  let saved;
+  try { saved = JSON.parse(localStorage.getItem(key) || '{}'); } catch { saved = {}; }
+  const delta = {
+    decisions:new Map(decisions.flatMap(d => Object.hasOwn(status,saved?.decisions?.[d.id]) && saved.decisions[d.id] !== d.status ? [[d.id,saved.decisions[d.id]]] : [])),
+    tasks:new Map(tasks.flatMap(t => typeof saved?.tasks?.[t.id] === 'boolean' && saved.tasks[t.id] !== t.done ? [[t.id,saved.tasks[t.id]]] : []))
+  };
+  let theme = saved?.theme === 'dark' ? 'dark' : 'light';
+  let mode = 'selected';
+  let selected = projectMap.has('crm') ? 'crm' : projects[0].id;
+  const save = () => {
+    try { localStorage.setItem(key,JSON.stringify({theme,decisions:Object.fromEntries(delta.decisions),tasks:Object.fromEntries(delta.tasks)})); } catch { /* Правки остаются доступны в открытой вкладке. */ }
+  };
+  const setDelta = (map,id,value,base) => value === base ? map.delete(id) : map.set(id,value);
+  const decisionStatus = d => delta.decisions.get(d.id) ?? d.status;
+  const taskDone = t => delta.tasks.get(t.id) ?? t.done;
+  const totalDone = project => project.tasks.filter(taskDone).length;
+  const escape = value => String(value).replace(/[&<>"']/g,c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const monthsShort = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+  const todayISO = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  const dayMs = 86400000;
+  const dateMs = iso => Date.parse(`${iso}T00:00:00Z`);
+  const shortDate = date => `${Number(date.slice(8,10))} ${monthsShort[Number(date.slice(5,7))-1]} ${date.slice(0,4)}`;
+  const showTheme = () => {
+    document.documentElement.dataset.theme = theme;
+    $('theme').textContent = theme === 'dark' ? 'Светлая тема' : 'Тёмная тема';
+  };
+  showTheme();
+  $('theme').addEventListener('click',() => { theme = theme === 'dark' ? 'light' : 'dark'; showTheme(); save(); });
+  $('print-button').addEventListener('click',() => window.print());
+  document.title = $('title').textContent = meta.title;
+  $('meta').textContent = `${meta.owner} · ${meta.company} · ${meta.period} · Обновлено ${shortDate(meta.updatedAt)}`;
+  $('urgent-count').textContent = `${urgent.length} срочных проекта`;
+  $('decisions-title').textContent = `${decisions.length} решения, которые держат старт`;
+  $('footer-label').textContent = `${meta.company} · ${meta.title.replace(':','')}`;
+  $('footer-date').textContent = `Обновлено ${shortDate(meta.updatedAt)}`;
+  $('footer-date').dateTime = meta.updatedAt;
+
+  const chevron = '<i class="chevron" aria-hidden="true"></i>';
+  const badge = p => `<span class="badge ${escape(p.priority)}">${escape(p.priorityLabel)}</span>`;
+  $('decisions').innerHTML = decisions.map(d => `<article class="decision">
+    <div class="decision-line"><h3><button type="button" class="decision-toggle" aria-expanded="false" aria-controls="decision-${escape(d.id)}"><span class="num">${escape(d.num)}</span><span>${escape(d.title)}</span>${chevron}</button></h3>
+    <select data-decision="${escape(d.id)}" aria-label="Статус решения ${escape(d.num)}: ${escape(d.title)}">${Object.entries(status).map(([value,label]) => `<option value="${value}">${label}</option>`).join('')}</select><span class="print-status"></span></div>
+    <div class="decision-body" id="decision-${escape(d.id)}" hidden><p><strong>Сейчас:</strong> ${escape(d.now)}</p><p><strong>Предложение:</strong> ${escape(d.proposal)}</p></div>
+  </article>`).join('');
+  for (const button of list('.decision-toggle')) button.addEventListener('click',() => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded',String(!open));
+    $(button.getAttribute('aria-controls')).hidden = open;
+  });
+  for (const select of list('select[data-decision]')) select.addEventListener('change',() => {
+    const d = decisionMap.get(select.dataset.decision);
+    if (!Object.hasOwn(status,select.value)) return;
+    setDelta(delta.decisions,d.id,select.value,d.status);
+    save(); updateCounts();
+  });
+
+  const first = dateMs(meta.rangeStart);
+  const afterLast = dateMs(meta.rangeEnd)+dayMs;
+  const percentage = time => 100*Math.min(1,Math.max(0,(time-first)/(afterLast-first)));
+  const marks = [];
+  for (let from = first; from < afterLast;) {
+    const d = new Date(from);
+    const next = Math.min(afterLast,Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1));
+    marks.push({from,days:(next-from)/dayMs,text:`${monthsShort[d.getUTCMonth()]} ${String(d.getUTCFullYear()).slice(-2)}`,year:d.getUTCMonth()===0 || from===first});
+    from = next;
+  }
+  const lines = `<div class="lines" aria-hidden="true">${marks.map(m => `<i style="--at:${percentage(m.from)}%"></i>`).join('')}</div><i class="today-line" aria-hidden="true" hidden></i>`;
+  $('chart').innerHTML = `<div class="chart-row chart-head"><div class="stream"><span class="stream-label">Проект / задачи</span></div><div class="track"><i class="today-line" aria-hidden="true" hidden></i><time class="today" hidden></time><div class="months" aria-label="Месяцы" style="--months:${marks.map(m => `minmax(0,${m.days}fr)`).join(' ')}">${marks.map(m => `<span class="month${m.year?' year':''}">${m.text}</span>`).join('')}</div></div></div>` +
+    projects.map(p => `<div class="chart-row" data-row="${escape(p.id)}"><button class="stream" type="button" aria-pressed="false" aria-controls="cards"><span class="stream-name">${escape(p.name)}</span><span class="project-meta">${badge(p)} <span class="row-count"></span></span></button><div class="track">${lines}${p.bars.map(b => {
+      const start = percentage(dateMs(b.start));
+      const duration = percentage(dateMs(b.end)+dayMs)-start;
+      return `<span class="bar ${escape(b.tone)}" style="--start:${start}%;--duration:${duration}%" title="${escape(b.label)} · ${shortDate(b.start)} – ${shortDate(b.end)}">${escape(b.label)}</span>`;
+    }).join('')}${p.milestones.map((m,i) => `<button class="marker" type="button" aria-pressed="false" aria-controls="timeline-info" aria-label="${shortDate(m.date)} · ${escape(p.name)}: ${escape(m.label)}" data-marker="${i}" style="--at:${percentage(dateMs(m.date)+dayMs/2)}%"></button>`).join('')}</div></div>`).join('');
+  let pinned = null;
+  let hovered = null;
+  const markerInfo = () => {
+    const marker = hovered || (document.activeElement?.matches('.marker') ? document.activeElement : null) || pinned;
+    const icon = '<i class="diamond" aria-hidden="true"></i>';
+    if (!marker) {
+      $('timeline-info').innerHTML = `${icon}<span>Наведи на ромб или выбери его, чтобы увидеть контрольную точку.</span>`;
+      return;
+    }
+    const p = projectMap.get(marker.closest('[data-row]').dataset.row);
+    const m = p.milestones[Number(marker.dataset.marker)];
+    $('timeline-info').innerHTML = `${icon}<span><strong>${shortDate(m.date)} · ${escape(p.name)}</strong> — ${escape(m.label)}. <strong>Если нет:</strong> ${escape(m.fallback)}</span>`;
+  };
+  const pin = marker => {
+    pinned?.setAttribute('aria-pressed','false');
+    pinned = marker;
+    pinned?.setAttribute('aria-pressed','true');
+  };
+  const choose = id => { selected = id; mode = 'selected'; showView(); };
+  for (const row of list('[data-row]')) row.addEventListener('click',() => choose(row.dataset.row));
+  for (const marker of list('.marker')) {
+    marker.addEventListener('pointerenter',() => { hovered = marker; markerInfo(); });
+    marker.addEventListener('pointerleave',() => { hovered = null; markerInfo(); });
+    marker.addEventListener('focus',markerInfo);
+    marker.addEventListener('blur',() => queueMicrotask(markerInfo));
+    marker.addEventListener('click',event => { event.stopPropagation(); choose(marker.closest('[data-row]').dataset.row); pin(pinned === marker ? null : marker); markerInfo(); });
+    marker.addEventListener('keydown',event => {
+      if (event.key === 'Escape') { pin(null); hovered = null; marker.closest('[data-row]').querySelector('.stream').focus(); }
+    });
+  }
+  markerInfo();
+
+  const shortNames = {crm:'CRM',hermes:'Hermes',margin:'Маржинальность',learning:'Обучение',harness:'Харнесс',other:'Разработка и отделы'};
+  const filters = {selected:'Выбранный проект',urgent:`Только срочные (${urgent.length})`,all:`Все проекты (${projects.length})`};
+  $('modes').innerHTML = Object.entries(filters).map(([id,label]) => `<button type="button" class="filter" data-mode="${id}" aria-controls="cards" aria-pressed="false">${label}</button>`).join('');
+  $('chips').innerHTML = projects.map(p => `<button type="button" class="filter" data-chip="${escape(p.id)}" aria-label="${escape(p.name)}" aria-controls="cards" aria-pressed="false">${escape(shortNames[p.id] || p.name)}</button>`).join('');
+  for (const button of list('[data-mode]')) button.addEventListener('click',() => { mode = button.dataset.mode; showView(); });
+  for (const button of list('[data-chip]')) button.addEventListener('click',() => choose(button.dataset.chip));
+  $('cards').innerHTML = projects.map(p => `<article class="card" data-card="${escape(p.id)}" aria-labelledby="project-${escape(p.id)}">
+    <div class="project-head"><div class="project-title"><h3 id="project-${escape(p.id)}">${escape(p.name)}</h3>${badge(p)}</div>
+    <div class="progress"><span class="progress-text"></span><progress max="${p.tasks.length || 1}" value="0" aria-label="Выполнено задач"></progress></div></div>
+    <p class="summary">${escape(p.summary)}</p><p class="have"><strong>Уже есть:</strong> ${escape(p.have)}</p>
+    <div class="project-columns"><div><h4>Задачи проекта</h4><ul class="task-list">${p.tasks.map(t => `<li><label class="task"><input type="checkbox" data-task="${escape(t.id)}"><span class="task-text">${escape(t.text)}</span><span class="badge due">${escape(t.due)}</span></label></li>`).join('')}</ul></div>
+    <div><h4>Контрольные точки</h4><ul class="milestone-list">${p.milestones.map(m => `<li><time datetime="${escape(m.date)}">${shortDate(m.date)}</time> <span class="badge past" data-past="${escape(m.date)}" hidden>Срок прошёл</span><p class="milestone-text">${escape(m.label)}</p><p class="milestone-fallback"><strong>Если нет:</strong> ${escape(m.fallback)}</p></li>`).join('')}</ul></div></div>
+  </article>`).join('');
+  for (const input of list('[data-task]')) input.addEventListener('change',() => {
+    const task = taskMap.get(input.dataset.task);
+    setDelta(delta.tasks,task.id,input.checked,task.done);
+    save(); updateCounts();
+  });
+  function showView() {
+    for (const row of list('[data-row]')) {
+      const active = row.dataset.row === selected;
+      row.classList.toggle('selected',active);
+      row.querySelector('.stream').setAttribute('aria-pressed',String(active));
+    }
+    for (const button of list('[data-mode]')) button.setAttribute('aria-pressed',String(button.dataset.mode === mode));
+    for (const button of list('[data-chip]')) button.setAttribute('aria-pressed',String(mode === 'selected' && button.dataset.chip === selected));
+    for (const card of list('[data-card]')) card.hidden = !(mode === 'all' || (mode === 'urgent' ? projectMap.get(card.dataset.card).priority === 'urgent' : card.dataset.card === selected));
+  }
+  function updateCounts() {
+    const resolved = decisions.filter(d => decisionStatus(d) === 'done').length;
+    $('top-decisions').textContent = `Решений: ${resolved}/${decisions.length}`;
+    $('decisions-count').textContent = `Решено ${resolved} из ${decisions.length}`;
+    $('top-tasks').textContent = `Задач: ${tasks.filter(taskDone).length}/${tasks.length}`;
+    for (const select of list('select[data-decision]')) {
+      const value = decisionStatus(decisionMap.get(select.dataset.decision));
+      select.value = select.dataset.status = value;
+      select.nextElementSibling.textContent = status[value];
+    }
+    for (const row of list('[data-row]')) {
+      const p = projectMap.get(row.dataset.row);
+      row.querySelector('.row-count').textContent = `${totalDone(p)}/${p.tasks.length}`;
+    }
+    for (const card of list('[data-card]')) {
+      const p = projectMap.get(card.dataset.card);
+      const count = totalDone(p);
+      card.querySelector('.progress-text').textContent = `Выполнено ${count} из ${p.tasks.length} задач`;
+      card.querySelector('progress').value = count;
+    }
+    for (const box of list('[data-task]')) box.checked = taskDone(taskMap.get(box.dataset.task));
+    $('local').hidden = !delta.decisions.size && !delta.tasks.size;
+    $('copy-feedback').textContent = '';
+  }
+  showView(); updateCounts();
+  $('reset').addEventListener('click',() => {
+    delta.decisions.clear(); delta.tasks.clear(); save(); updateCounts();
+    list('[data-mode]').find(button => button.dataset.mode === mode)?.focus();
+  });
+  $('copy').addEventListener('click',async () => {
+    const text = [
+      ...decisions.filter(d => delta.decisions.has(d.id)).map(d => `Решение ${d.num}. ${d.title}: ${status[decisionStatus(d)]}`),
+      ...projects.flatMap(p => p.tasks.filter(t => delta.tasks.has(t.id)).map(t => `${p.name}: ${t.text} — ${taskDone(t)?'выполнено':'не выполнено'}`))
+    ].join('\n');
+    try { await navigator.clipboard.writeText(text); }
+    catch {
+      const field = document.createElement('textarea');
+      field.value = text;
+      field.style.cssText = 'position:fixed;inset:0 auto auto 0;opacity:0;pointer-events:none';
+      document.body.append(field);
+      field.select();
+      let copied = false;
+      try { copied = document.execCommand('copy'); } catch { /* Буфер недоступен. */ }
+      field.remove(); $('copy').focus();
+      if (!copied) { $('copy-feedback').textContent = 'Не удалось скопировать'; return; }
+    }
+    $('copy-feedback').textContent = 'Скопировано';
+  });
+  $('more-title').textContent = `Риски (${risks.length}) и открытые вопросы (${openQuestions.length})`;
+  $('more-body').innerHTML = `<section><h4>Риски</h4><div class="risk-grid">${risks.map(r => `<article class="risk"><h4>${escape(r.title)}</h4><p><strong>Сигнал:</strong> ${escape(r.signal)}</p><p><strong>Что делаем:</strong> ${escape(r.action)}</p></article>`).join('')}</div></section><section><h4>Открытые вопросы</h4><ul class="questions">${openQuestions.map(q => `<li>${escape(q)}</li>`).join('')}</ul></section>`;
+  let detailsBeforePrint;
+  window.addEventListener('beforeprint',() => { detailsBeforePrint ??= $('more').open; $('more').open = true; });
+  window.addEventListener('afterprint',() => { if (detailsBeforePrint !== undefined) $('more').open = detailsBeforePrint; detailsBeforePrint = undefined; });
+  function showToday() {
+    const now = new Date();
+    const date = todayISO(now);
+    const within = date >= meta.rangeStart && date <= meta.rangeEnd;
+    $('chart').style.setProperty('--today',`${percentage(dateMs(date)+dayMs/2)}%`);
+    for (const node of list('.today-line, .today')) node.hidden = !within;
+    const label = document.querySelector('.today');
+    label.dateTime = date;
+    label.textContent = `Сегодня, ${String(now.getDate()).padStart(2,'0')} ${monthsShort[now.getMonth()]}`;
+    for (const badge of list('[data-past]')) badge.hidden = badge.dataset.past >= date;
+  }
+  showToday();
+  document.addEventListener('visibilitychange',() => { if (!document.hidden) showToday(); });
+})();
+</script>
+</body>
+</html>
