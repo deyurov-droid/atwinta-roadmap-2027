@@ -419,6 +419,30 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
       ]
     },
     {
+      "id": "outreach-platform",
+      "name": "Автоматизация и платформа аутрича (Пульт)",
+      "short": "Убрать ручную операционку оператора",
+      "priority": "active",
+      "priorityLabel": "В работе",
+      "summary": "Создание собственной платформы аутрича («Пульт») и автоматизация полного цикла: сбор и очистка баз, обогащение контактов, персонализация сообщений и контроль кампаний без ручной операционки человека.",
+      "have": "Работает методика бутикового аутрича, есть скрипты сборки баз и веб-прототип «Пульта» на PostgreSQL.",
+      "bars": [
+        { "label": "Прототип и автоматизация рутины", "start": "2026-11-01", "end": "2027-02-28", "tone": "soft" },
+        { "label": "Платформа без оператора", "start": "2027-03-01", "end": "2027-06-30", "tone": "soft" },
+        { "label": "Масштабирование сегментов", "start": "2027-07-01", "end": "2027-11-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2027-02-28", "label": "Сбор баз, проверка и персонализация автоматизированы в «Пульте»", "fallback": "Автоматизируем самые трудоёмкие шаги по очереди" },
+        { "date": "2027-06-30", "label": "Платформа ведёт кампании без выделенного оператора на ручной операционке", "fallback": "Оставляем минимальный ручной контроль только на финальной проверке" }
+      ],
+      "tasks": [
+        { "id": "out-1", "text": "Перенести сбор, дедупликацию и проверку целевых баз в автоматический пайплайн «Пульта»", "due": "до 31 янв", "done": false },
+        { "id": "out-2", "text": "Автоматизировать обогащение контактов и генерацию персонализированных сообщений", "due": "до 28 фев", "done": false },
+        { "id": "out-3", "text": "Вывести «Пульт» в рабочий контур: управление кампаниями, статусы и аналитика конверсии во встречи", "due": "до 30 апр", "done": false },
+        { "id": "out-4", "text": "Замкнуть автономный цикл аутрича и вывести выделенного оператора из ручной операционки", "due": "до 30 июн", "done": false }
+      ]
+    },
+    {
       "id": "margin",
       "name": "Маржинальность и контроль ИИ в проектах",
       "short": "Разборы с менеджерами, потери, фикс-цена",
@@ -691,7 +715,7 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
   }
   markerInfo();
 
-  const shortNames = {crm:'CRM',hermes:'Hermes',sber2v:'Сбер2В',tenders:'Тендеры',margin:'Маржинальность',learning:'Обучение',harness:'Харнесс',other:'Разработка и отделы'};
+  const shortNames = {crm:'CRM',hermes:'Hermes',sber2v:'Сбер2В',tenders:'Тендеры','outreach-platform':'Пульт аутрича',margin:'Маржинальность',learning:'Обучение',harness:'Харнесс',other:'Разработка и отделы'};
   const filters = {selected:'Выбранный проект',urgent:`Только срочные (${urgent.length})`,all:`Все проекты (${projects.length})`};
   $('modes').innerHTML = Object.entries(filters).map(([id,label]) => `<button type="button" class="filter" data-mode="${id}" aria-controls="cards" aria-pressed="false">${label}</button>`).join('');
   $('chips').innerHTML = projects.map(p => `<button type="button" class="filter" data-chip="${escape(p.id)}" aria-label="${escape(p.name)}" aria-controls="cards" aria-pressed="false">${escape(shortNames[p.id] || p.name)}</button>`).join('');
