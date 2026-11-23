@@ -14,7 +14,7 @@
   color-scheme:light;
   --bg:#F2F3F5;--surface:#FFF;--sub:#F7F8FA;--fg:#1B1D21;--text:#4A4E55;--muted:#646B75;--edge:#E1E4E9;--input:#A0A6B0;
   --accent:#FF2159;--pink:#FFE8EE;--red:#B00036;--amber:#FFF0D4;--brown:#754500;--slate:#E9EDF4;--slate-text:#42516C;--green:#E1F3E9;--green-text:#206244;
-  --gut:clamp(14px,3vw,42px);--pad:clamp(14px,1.65vw,24px);--gap:clamp(14px,1.7vw,24px);
+  --gut:clamp(14px,3vw,42px);--pad:clamp(14px,1.65vw,24px);--gap:clamp(14px,1.4vw,19px);
 }
 [data-theme="dark"] {
   color-scheme:dark;
@@ -55,10 +55,10 @@ main>* {min-width:0}
 .panel,.card,.more-details {background:var(--surface);border:1px solid var(--edge);border-radius:12px;min-width:0}
 .section-head {display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:5px 14px;margin-bottom:11px}
 .section-head p,.section-head output {color:var(--muted);font-size:.8125rem}
-.decisions {padding:14px var(--pad)}
+.decisions {padding:11px var(--pad)}
 .decision-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
 .decision {background:var(--sub);border:1px solid var(--edge);border-radius:7px;min-width:0}
-.decision-line {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;padding-inline:4px 7px;gap:6px;min-height:47px}
+.decision-line {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;padding-inline:4px 7px;gap:6px;min-height:44px}
 .decision-toggle {display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px;min-height:42px;width:100%;text-align:start;background:none;color:var(--fg);border:0;border-radius:4px;padding:5px 5px;font-size:.8125rem;font-weight:500;line-height:1.25}
 .decision-toggle:hover,.more-details summary:hover {color:var(--red)}
 .num {display:grid;place-items:center;width:24px;height:24px;background:var(--pink);color:var(--red);border-radius:5px;font-size:.75rem;font-weight:600}
@@ -70,12 +70,12 @@ select[data-status="done"] {background:var(--green);color:var(--green-text)}
 .decision-body {border-top:1px solid var(--edge);padding:11px;display:grid;gap:7px;color:var(--text);font-size:.8125rem}
 .decision-body strong,.have strong,.milestone-fallback strong,.risk strong {color:var(--fg);font-weight:600}
 .print-status {display:none}
-.timeline-head {padding:14px var(--pad) 0;margin:0}
+.timeline-head {padding:11px var(--pad) 0;margin:0}
 .timeline-scroll {overflow-x:auto;max-width:100%;scrollbar-width:thin}
 .timeline-scroll:focus-visible {outline-offset:-3px}
 .chart {--labels:242px;--today:0%;--marker-fade:color-mix(in srgb,var(--accent) 50%,transparent);min-width:1130px;padding-inline:var(--pad);isolation:isolate}
 .chart-row {display:grid;grid-template-columns:var(--labels) minmax(0,1fr);position:relative;min-width:0}
-.chart-row:not(.chart-head) {cursor:pointer;border-bottom:1px solid var(--edge);min-height:62px}
+.chart-row:not(.chart-head) {cursor:pointer;border-bottom:1px solid var(--edge);min-height:56px}
 .chart-row:not(.chart-head):hover,.chart-row.selected {background:var(--sub)}
 .chart-row.selected .stream {box-shadow:inset 3px 0 var(--accent)}
 .stream {position:sticky;left:0;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:start;width:100%;gap:4px;padding:4px 11px 4px 12px;border:0;border-radius:0;text-align:start;background:var(--surface);color:var(--fg);line-height:1.25}
@@ -101,12 +101,12 @@ select[data-status="done"] {background:var(--green);color:var(--green-text)}
 .bar {position:absolute;z-index:2;display:flex;align-items:center;left:var(--start);width:var(--duration);top:5px;min-height:31px;padding:3px 6px;box-shadow:inset -1px 0 var(--surface);border-radius:4px;background:var(--slate);color:var(--slate-text);font-size:.7375rem;font-weight:500;line-height:1.12;overflow-wrap:anywhere}
 .bar.hot {background:var(--accent);color:#220711}
 .bar.soft {background:var(--pink);color:var(--red)}
-.marker {position:absolute;bottom:0;left:var(--at);transform:translateX(-50%);z-index:3;width:29px;height:28px;border:0;padding:0;background:transparent;color:var(--slate-text);border-radius:5px}
+.marker {position:absolute;bottom:0;left:var(--at);transform:translateX(-50%);z-index:3;width:29px;height:24px;border:0;padding:0;background:transparent;color:var(--slate-text);border-radius:5px}
 .marker::after,.diamond {content:"";display:block;width:9px;height:9px;margin:auto;border:2px solid currentColor;background:var(--surface);border-radius:1px;transform:rotate(45deg)}
 .marker:hover,.marker[aria-pressed="true"],.marker:focus-visible {color:var(--red)}
 .marker:hover::after,.marker[aria-pressed="true"]::after {background:var(--pink)}
 .marker:focus-visible {outline-offset:-3px}
-.timeline-info {display:flex;align-items:center;gap:10px;min-height:43px;padding:7px var(--pad);font-size:.78rem;color:var(--muted);background:var(--sub);border-radius:0 0 11px 11px}
+.timeline-info {display:flex;align-items:center;gap:10px;min-height:37px;padding:7px var(--pad);font-size:.78rem;color:var(--muted);background:var(--sub);border-radius:0 0 11px 11px}
 .diamond {flex:none;margin:0 2px;color:var(--slate-text)}
 .timeline-info strong {color:var(--fg);font-weight:600}
 .scroll-hint {display:none}
@@ -165,6 +165,7 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
 }
 @media(max-width:760px) {
   .chart {--labels:153px;min-width:1050px}
+  .chart-row:not(.chart-head) {min-height:62px}
   .stream {padding-inline:7px}
   .project-columns {grid-template-columns:minmax(0,1fr);row-gap:13px}
   .project-columns>div+div {padding:12px 0 0;border-inline-start:0;border-top:1px solid var(--edge)}
@@ -175,6 +176,8 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
 }
 @media(max-width:640px) {
   #print-button {display:none}
+  .decision-line {gap:14px}
+  .decision-toggle[aria-expanded="false"] .chevron {transform:rotate(-45deg);margin-block:0}
   .top .button,.local .button {min-height:44px}
   .project-head {flex-direction:column}
   .progress {width:min(245px,100%)}
@@ -439,11 +442,11 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
     },
     {
       "id": "other",
-      "name": "Разработка, отделы и фоновые зоны",
-      "short": "Разработка, регламенты отделов, маркетинг, продажи",
+      "name": "Разработка и внедрение ИИ в отделах",
+      "short": "Встречи с разработкой и регламенты отделов",
       "priority": "later",
       "priorityLabel": "I кв. – год",
-      "summary": "Отдельный заход в разработку без давления сверху, волновое внедрение в остальных отделах (дизайн, аналитика, маркетинг, QA, бэк-офис), продолжение маркетинга/аутрича и адресное участие в продажах.",
+      "summary": "Отдельный заход в разработку без давления сверху и волновое внедрение ИИ в остальных отделах: дизайн, аналитика, маркетинг, QA и бэк-офис.",
       "have": "Программа внедрения по отделам и производственная стратегия от 11 ноября готовы и лежат в фоне.",
       "bars": [
         { "label": "Встречи: разработка", "start": "2027-01-01", "end": "2027-02-28", "tone": "soft" },
@@ -454,9 +457,29 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
       ],
       "tasks": [
         { "id": "oth-1", "text": "Провести 2–3 встречи с руководителем разработки: инструменты, легальная модель, проверка кода", "due": "до 28 фев", "done": false },
-        { "id": "oth-2", "text": "Зафиксировать цели маркетинга и аутрича на 2027 год (ведутся постоянно)", "due": "до 28 фев", "done": false },
-        { "id": "oth-3", "text": "Внедрить по рабочему ИИ-кейсу в регламенты дизайна, аналитики, маркетинга, QA и бэк-офиса", "due": "до 30 сен", "done": false },
-        { "id": "oth-4", "text": "Продажи — адресное подключение к ключевым сделкам по запросу", "due": "по запросу", "done": false }
+        { "id": "oth-2", "text": "Согласовать позицию разработки и общий план ИИ-инструментов на 2027 год", "due": "до 28 фев", "done": false },
+        { "id": "oth-3", "text": "Внедрить по рабочему ИИ-кейсу в регламенты дизайна, аналитики, маркетинга, QA и бэк-офиса", "due": "до 30 сен", "done": false }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Маркетинг и аутрич",
+      "short": "Постоянный контур и продажи по запросу",
+      "priority": "active",
+      "priorityLabel": "Постоянно",
+      "summary": "Системное ведение маркетинга и аутрича в течение года, фиксация целей на 2027 год и адресное подключение к ключевым продажам по вызову.",
+      "have": "Направление ведётся непрерывно в зоне ответственности замгендиректора по стратегии; цели на 2027 год уточняются после разговора.",
+      "bars": [
+        { "label": "Аудит и цели на 2027", "start": "2026-11-01", "end": "2027-02-28", "tone": "soft" },
+        { "label": "Маркетинг и аутрич (постоянно)", "start": "2027-03-01", "end": "2027-11-30", "tone": "calm" }
+      ],
+      "milestones": [
+        { "date": "2027-02-28", "label": "Зафиксированы состояние и цели маркетинга и аутрича на 2027 год", "fallback": "Уточняем цели и каналы вместе с генеральным директором" }
+      ],
+      "tasks": [
+        { "id": "mkt-1", "text": "Зафиксировать текущее состояние маркетинга и аутрича и утвердить цели на 2027 год", "due": "до 28 фев", "done": false },
+        { "id": "mkt-2", "text": "Вести постоянный контур маркетинга и аутрича по утверждённым приоритетам", "due": "весь год", "done": false },
+        { "id": "mkt-3", "text": "Адресное подключение к ключевым продажам по запросу", "due": "по запросу", "done": false }
       ]
     }
   ],
@@ -594,7 +617,7 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
     const marker = hovered || (document.activeElement?.matches('.marker') ? document.activeElement : null) || pinned;
     const icon = '<i class="diamond" aria-hidden="true"></i>';
     if (!marker) {
-      $('timeline-info').innerHTML = `${icon}<span>Наведи на ромб или выбери его, чтобы увидеть контрольную точку.</span>`;
+      $('timeline-info').innerHTML = `${icon}<span>Нажми на ромб, чтобы увидеть контрольную точку.</span>`;
       return;
     }
     const p = projectMap.get(marker.closest('[data-row]').dataset.row);
