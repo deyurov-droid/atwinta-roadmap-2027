@@ -101,6 +101,8 @@ select[data-status="done"] {background:var(--green);color:var(--green-text)}
 .bar {position:absolute;z-index:2;display:flex;align-items:center;left:var(--start);width:var(--duration);top:5px;min-height:31px;padding:3px 6px;box-shadow:inset -1px 0 var(--surface);border-radius:4px;background:var(--slate);color:var(--slate-text);font-size:.7375rem;font-weight:500;line-height:1.12;overflow-wrap:anywhere}
 .bar.hot {background:var(--accent);color:#220711}
 .bar.soft {background:var(--pink);color:var(--red)}
+.bar.narrow {overflow:visible;padding:0;min-width:6px}
+.bar.narrow .bar-text {position:absolute;left:calc(100% + 6px);top:50%;transform:translateY(-50%);white-space:nowrap;color:var(--fg);font-weight:500;pointer-events:none}
 .marker {position:absolute;bottom:0;left:var(--at);transform:translateX(-50%);z-index:3;width:29px;height:24px;border:0;padding:0;background:transparent;color:var(--slate-text);border-radius:5px}
 .marker::after,.diamond {content:"";display:block;width:9px;height:9px;margin:auto;border:2px solid currentColor;background:var(--surface);border-radius:1px;transform:rotate(45deg)}
 .marker:hover,.marker[aria-pressed="true"],.marker:focus-visible {color:var(--red)}
@@ -271,7 +273,7 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
     "subtitle": "Заместитель генерального директора по стратегии — главные проекты, решения и контрольные даты",
     "owner": "Дмитрий Юров",
     "period": "Ноябрь 2026 – ноябрь 2027",
-    "updatedAt": "2026-11-24",
+    "updatedAt": "2026-11-25",
     "rangeStart": "2026-11-01",
     "rangeEnd": "2027-11-30"
   },
@@ -368,6 +370,46 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
         { "id": "her-5", "text": "Подключить отдел продаж, затем проджектов (старт с 30-минутной сессии на живой задаче)", "due": "до 11 дек", "done": false },
         { "id": "her-6", "text": "Разослать правило по данным на 1 страницу (какие данные клиентов в какие модели можно отдавать)", "due": "до 15 дек", "done": false },
         { "id": "her-7", "text": "Проверить открытые модели у российского провайдера в декабре и пересматривать выбор раз в полгода", "due": "дек / май / ноя", "done": false }
+      ]
+    },
+    {
+      "id": "smitup-site",
+      "name": "SMITUP: перенос основного сайта с Tilda",
+      "short": "Миграция основного сайта · ближайшие 2 недели",
+      "priority": "urgent",
+      "priorityLabel": "До 9 дек",
+      "summary": "Перенос основного сайта SMITUP с Tilda на собственную платформу за 2 недели: переносим структуру, контент, формы и аналитику без потери трафика и заявок.",
+      "have": "Основной сайт SMITUP работает на Tilda; перенос поставлен в срочный контур на ближайшие 2 недели.",
+      "bars": [
+        { "label": "Перенос сайта с Tilda", "start": "2026-11-25", "end": "2026-12-09", "tone": "hot" }
+      ],
+      "milestones": [
+        { "date": "2026-12-09", "label": "Основной сайт SMITUP перенесён с Tilda и работает на боевом домене", "fallback": "Запускаем ключевые продающие страницы и формы, второстепенные разделы допереносим следом" }
+      ],
+      "tasks": [
+        { "id": "sms-1", "text": "Зафиксировать список страниц, форм, редиректов, интеграций и метрик текущего сайта на Tilda", "due": "до 28 ноя", "done": false },
+        { "id": "sms-2", "text": "Собрать и наполнить новый сайт, подключить формы заявок, аналитику и базовое SEO", "due": "до 6 дек", "done": false },
+        { "id": "sms-3", "text": "Провести приёмку, переключить домен и проверить работу заявок и редиректов в проде", "due": "до 9 дек", "done": false }
+      ]
+    },
+    {
+      "id": "smitup-ai",
+      "name": "SMITUP: ИИ-фичи",
+      "short": "Разработка и выпуск ИИ-функций · до 31 дек",
+      "priority": "urgent",
+      "priorityLabel": "До 31 дек",
+      "summary": "Проектирование, разработка и запуск ИИ-функций в продукте SMITUP до конца 2026 года.",
+      "have": "Направление ИИ-фич SMITUP добавлено в срочный контур до 31 декабря; состав релиза и приоритет сценариев фиксируются на старте.",
+      "bars": [
+        { "label": "Разработка и выпуск ИИ-фич", "start": "2026-11-25", "end": "2026-12-31", "tone": "hot" }
+      ],
+      "milestones": [
+        { "date": "2026-12-31", "label": "Согласованные ИИ-фичи SMITUP собраны, проверены и запущены", "fallback": "Выпускаем первоочередные сценарии до Нового года, остальное переносим на январь" }
+      ],
+      "tasks": [
+        { "id": "sma-1", "text": "Зафиксировать состав ИИ-фич SMITUP в релиз до конца года, критерии приёмки и ограничения по моделям", "due": "до 2 дек", "done": false },
+        { "id": "sma-2", "text": "Собрать и протестировать ИИ-фичи на реальных сценариях и данных продукта", "due": "до 22 дек", "done": false },
+        { "id": "sma-3", "text": "Провести финальную приёмку и выкатить ИИ-фичи SMITUP до конца года", "due": "до 31 дек", "done": false }
       ]
     },
     {
@@ -663,7 +705,8 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
   $('print-button').addEventListener('click',() => window.print());
   document.title = $('title').textContent = meta.title;
   $('meta').textContent = `${meta.owner} · ${meta.company} · ${meta.period} · Обновлено ${shortDate(meta.updatedAt)}`;
-  $('urgent-count').textContent = `${urgent.length} срочных проекта`;
+  const plural = (n, one, few, many) => { const m = n % 100, d = m % 10; return m > 10 && m < 20 ? many : d === 1 ? one : d >= 2 && d <= 4 ? few : many; };
+  $('urgent-count').textContent = `${urgent.length} ${plural(urgent.length,'срочный проект','срочных проекта','срочных проектов')}`;
   $('decisions-title').textContent = `${decisions.length} решения, которые держат старт`;
   $('footer-label').textContent = `${meta.company} · ${meta.title.replace(':','')}`;
   $('footer-date').textContent = `Обновлено ${shortDate(meta.updatedAt)}`;
@@ -703,7 +746,8 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
     projects.map(p => `<div class="chart-row" data-row="${escape(p.id)}"><button class="stream" type="button" aria-pressed="false" aria-controls="cards"><span class="stream-name">${escape(p.name)}</span><span class="project-meta">${badge(p)} <span class="row-count"></span></span></button><div class="track">${lines}${p.bars.map(b => {
       const start = percentage(dateMs(b.start));
       const duration = percentage(dateMs(b.end)+dayMs)-start;
-      return `<span class="bar ${escape(b.tone)}" style="--start:${start}%;--duration:${duration}%" title="${escape(b.label)} · ${shortDate(b.start)} – ${shortDate(b.end)}">${escape(b.label)}</span>`;
+      const narrow = duration < 7;
+      return `<span class="bar ${escape(b.tone)}${narrow?' narrow':''}" style="--start:${start}%;--duration:${duration}%" title="${escape(b.label)} · ${shortDate(b.start)} – ${shortDate(b.end)}">${narrow?`<span class="bar-text">${escape(b.label)}</span>`:escape(b.label)}</span>`;
     }).join('')}${p.milestones.map((m,i) => `<button class="marker" type="button" aria-pressed="false" aria-controls="timeline-info" aria-label="${shortDate(m.date)} · ${escape(p.name)}: ${escape(m.label)}" data-marker="${i}" style="--at:${percentage(dateMs(m.date)+dayMs/2)}%"></button>`).join('')}</div></div>`).join('');
   let pinned = null;
   let hovered = null;
@@ -737,7 +781,7 @@ footer .shell {display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px
   }
   markerInfo();
 
-  const shortNames = {crm:'CRM',hermes:'Hermes','ano-portal':'Портал АНО',sber2v:'Сбер2В',tenders:'Тендеры','outreach-platform':'Пульт аутрича',margin:'Маржинальность',learning:'Обучение',harness:'Харнесс',other:'Разработка и отделы'};
+  const shortNames = {crm:'CRM',hermes:'Hermes','smitup-site':'SMITUP: сайт','smitup-ai':'SMITUP: ИИ-фичи','ano-portal':'Портал АНО',sber2v:'Сбер2В',tenders:'Тендеры','outreach-platform':'Пульт аутрича',margin:'Маржинальность',learning:'Обучение',harness:'Харнесс',other:'Разработка и отделы'};
   const filters = {selected:'Выбранный проект',urgent:`Только срочные (${urgent.length})`,all:`Все проекты (${projects.length})`};
   $('modes').innerHTML = Object.entries(filters).map(([id,label]) => `<button type="button" class="filter" data-mode="${id}" aria-controls="cards" aria-pressed="false">${label}</button>`).join('');
   $('chips').innerHTML = projects.map(p => `<button type="button" class="filter" data-chip="${escape(p.id)}" aria-label="${escape(p.name)}" aria-controls="cards" aria-pressed="false">${escape(shortNames[p.id] || p.name)}</button>`).join('');
